@@ -18,7 +18,7 @@ import edu.csupomona.cs585.ibox.sync.FileSyncManager;
 public class WatchDirTest {
 	/* File change notification allow to listen for changes in the file system */
 	int count = 0;
-	public static final String DIR_PATH = "C:\\Testsync\\";
+	public static final String DIR_PATH = ".\\Testsync\\";
 
 	@Test
 	public void testWatchDir() throws InterruptedException {
@@ -73,8 +73,8 @@ class TestADU extends Thread {
 				}
 			}
 			Thread.sleep(2000);
-			Path file1 = Paths.get(WatchDirTest.DIR_PATH + "test10.txt");
-			Path file2 = Paths.get(WatchDirTest.DIR_PATH + "test20.txt");
+			Path file1 = Paths.get(WatchDirTest.DIR_PATH + "test1.txt");
+			Path file2 = Paths.get(WatchDirTest.DIR_PATH + "test2.txt");
 			Files.createFile(file1); // add file1
 			Thread.sleep(1000);
 			FileWriter fw = new FileWriter(file1.toString());
