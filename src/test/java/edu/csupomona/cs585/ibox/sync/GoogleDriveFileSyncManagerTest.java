@@ -121,13 +121,13 @@ public class GoogleDriveFileSyncManagerTest {
  		com.google.api.services.drive.Drive.Files.List mockList = mock(com.google.api.services.drive.Drive.Files.List.class);
  		when(testDir.list()).thenReturn(mockList);
  
- 		com.google.api.services.drive.model.File finalFile = new com.google.api.services.drive.model.File();
- 		finalFile.setId("Mock ID");
- 		finalFile.setTitle("Dummy.txt");
+ 		com.google.api.services.drive.model.File fFile = new com.google.api.services.drive.model.File();
+ 		fFile.setId("Mock ID");
+ 		fFile.setTitle("Dummy.txt");
  
  		com.google.api.services.drive.model.FileList files = new com.google.api.services.drive.model.FileList();
  		List<com.google.api.services.drive.model.File> items = new ArrayList<com.google.api.services.drive.model.File>();
- 		items.add(finalFile);
+ 		items.add(fFile);
  		files.setItems(items);
  
  		when(mockList.execute()).thenReturn(files);

@@ -16,7 +16,6 @@ import org.junit.Test;
 import edu.csupomona.cs585.ibox.sync.FileSyncManager;
 
 public class WatchDirTest {
-	/* File change notification allow to listen for changes in the file system */
 	int count = 0;
 	public static final String DIR_PATH = ".\\Testsync\\";
 
@@ -43,12 +42,10 @@ public class WatchDirTest {
 				}
 			};
 			Path dir = Paths.get(DIR_PATH);
-			new TestADU().start(); // Call parallel thread to Add/update/delete
-									// files
+			new TestAddDeleteUpdate().start(); 
 			new WatchDir(dir, fileSyncManager).processEvents();
 			System.out.println(count);
-			assertEquals(6, count); // count should be 6 (2 Add,2 update ,2
-									// delete)
+			assertEquals(6, count); 
 
 		} catch (IOException e) {
 			fail();
@@ -58,7 +55,7 @@ public class WatchDirTest {
 }
 
 // Class to add /delete /Update
-class TestADU extends Thread {
+class TestAddDeleteUpdate extends Thread {
 	private AtomicBoolean done = new AtomicBoolean(false);
 
 	@Override
